@@ -12,7 +12,6 @@ lib.addCommand("oxgroups", {
 	help = 'Open the OxGroups menu',
 	restricted = "group.admin"
 }, function(source)
-	print("here")
 	local groups = {}
 	for _, group in pairs(GlobalState.groups) do
 		local oxGroup = Ox.GetGroup(group)
