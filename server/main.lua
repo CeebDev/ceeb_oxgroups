@@ -36,6 +36,7 @@ end)
 
 RegisterNetEvent("ceeb_oxgroups:deleteGroup", function(groupName, deleteAccount)
 	local source = source
+	if not IsPlayerAceAllowed(source, "command.oxgroups") then return end
 	if deleteAccount then
 		MySQL.query.await("DELETE FROM accounts WHERE `group` = ? AND isDefault = true", { groupName })
 	end
@@ -45,6 +46,7 @@ end)
 
 RegisterNetEvent("ceeb_oxgroups:createGroup", function(newGroup)
 	local source = source
+	if not IsPlayerAceAllowed(source, "command.oxgroups") then return end
 	local formattedGrades = {}
 	for _, grade in pairs(newGroup.grades) do
 		formattedGrades[grade.id] = {
